@@ -6,32 +6,19 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-
         <!-- Generic properties -->
         <java.version>1.7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!--  Apache Flume -->
+        <!--  Dependency versions -->
         <flume.core.version>1.5.2</flume.core.version>
-
-        <!-- Spring -->
         <spring-framework.version>4.1.5.RELEASE</spring-framework.version>
-
-        <!-- Cache -->
         <ehcache.version>2.9.1</ehcache.version>
-
-        <!--&lt;!&ndash; Logging &ndash;&gt;-->
-        <!--<logback.version>1.0.13</logback.version>-->
-        <!--<slf4j.version>1.7.5</slf4j.version>-->
-
-        <!-- Test -->
         <testng.version>6.1.1</testng.version>
-
     </properties>
 
     <dependencies>
-        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -42,48 +29,17 @@
             <artifactId>spring-context-support</artifactId>
             <version>${spring-framework.version}</version>
         </dependency>
-
-        <!-- Ehcache -->
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <version>${ehcache.version}</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.springframework</groupId>-->
-        <!--<artifactId>spring-tx</artifactId>-->
-        <!--<version>${spring-framework.version}</version>-->
-        <!--</dependency>-->
-
-        <!-- Logging with SLF4J & LogBack -->
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-api</artifactId>-->
-        <!--<version>${slf4j.version}</version>-->
-        <!--<scope>compile</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>ch.qos.logback</groupId>-->
-        <!--<artifactId>logback-classic</artifactId>-->
-        <!--<version>${logback.version}</version>-->
-        <!--<scope>runtime</scope>-->
-        <!--</dependency>-->
-
-        <!-- Test Artifacts -->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework</groupId>-->
-        <!--<artifactId>spring-test</artifactId>-->
-        <!--<version>${spring-framework.version}</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!--  Apache Flume -->
         <dependency>
             <groupId>org.apache.flume</groupId>
             <artifactId>flume-ng-core</artifactId>
@@ -91,5 +47,26 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <!-- put your configurations here -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
