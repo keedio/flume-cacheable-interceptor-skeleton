@@ -12,13 +12,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /** *
  * Implements a cacheable interceptor
- * In order to cache events, the Event implementation needs to provide
- * implementation for the following methods:
- *      hashCode()
- *      equals()
- * If Event doesn't have a natural key nor implement these methods then
- * a different key generator is needed, i.e. an implementation for
- * {@link org.springframework.cache.interceptor.KeyGenerator} needs to be provided.
  *
  * @see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html">Spring Cache docs</a>
  *
@@ -41,8 +34,8 @@ public class CacheableInterceptor implements Interceptor {
 
 	@Override
 	public Event intercept(Event event) {
-        // Don't change this method body !!!!
-        // Edit the FlumeCacheService.intercept method to implement your interceptor
+        // Edit the FlumeCacheService.intercept method to implement
+        // the transformation you want to cache.
         return service.intercept(event);
 	}
 
