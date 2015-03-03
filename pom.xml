@@ -16,6 +16,8 @@
         <spring-framework.version>4.1.5.RELEASE</spring-framework.version>
         <ehcache.version>2.9.1</ehcache.version>
         <testng.version>6.1.1</testng.version>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -45,6 +47,16 @@
             <artifactId>flume-ng-core</artifactId>
             <version>${flume.core.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>flume-enrichment-interceptor</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>3.2</version>
         </dependency>
     </dependencies>
 
