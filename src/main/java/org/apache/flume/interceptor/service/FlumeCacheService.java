@@ -7,15 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
-
 import org.apache.flume.interceptor.EnrichedEventBody;
 
 import java.util.*;
-
 import org.apache.flume.serialization.JSONStringSerializer;
-
 import java.io.FileReader;
- 
 import com.opencsv.CSVReader;
 
 @Component
@@ -25,7 +21,7 @@ public class FlumeCacheService implements ICacheService<Event> {
     private String externalFile;
 
     @Override
-    @Cacheable(value = "FlumeCachedEvent")
+   @Cacheable(value = "FlumeCachedEvent")
     public Event intercept(Event d) {
         byte[] payload = d.getBody();
         try {
@@ -41,7 +37,7 @@ public class FlumeCacheService implements ICacheService<Event> {
         return d;
     }
     
-    
+    @Cacheable(value = "FlumeCachedEvent")
     /*
     @return Map
     @param String to enrich data according key named 'hostname'.
@@ -55,13 +51,15 @@ public class FlumeCacheService implements ICacheService<Event> {
          for(String[] row : allRows){
              newValue += Arrays.toString(row);
         }
-         data.put("hostname", newValue);
+         if (data.containsKey("hostname")){
+             String enrichedValue = data.get("hostname") + newValue;
+            data.put("hostname", enrichedValue);
+         }
         } catch (FileNotFoundException e ) {
             logger.error("FileNotFoundException", e);
         } catch (IOException e){
             logger.error("IOException", e);
         }
-        
         return  data;
     }
     
