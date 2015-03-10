@@ -11,8 +11,8 @@ public class CacheableInterceptorTest {
     @Test
     public void testSpringContext() {
 
-        CacheableInterceptor.Builder builder = new CacheableInterceptor.Builder();
-        CacheableInterceptor interceptor = (CacheableInterceptor) builder.build();
+        CacheableInterceptor.CacheableBuilder cacheableBuilder = new CacheableInterceptor.CacheableBuilder();
+        CacheableInterceptor interceptor = (CacheableInterceptor) cacheableBuilder.build();
 
         ApplicationContext context = interceptor.getContext();
         Assert.assertNotNull(context);
@@ -25,8 +25,8 @@ public class CacheableInterceptorTest {
     @Test
     public void testSpringService() {
 
-        CacheableInterceptor.Builder builder = new CacheableInterceptor.Builder();
-        CacheableInterceptor interceptor = (CacheableInterceptor) builder.build();
+        CacheableInterceptor.CacheableBuilder cacheableBuilder = new CacheableInterceptor.CacheableBuilder();
+        CacheableInterceptor interceptor = (CacheableInterceptor) cacheableBuilder.build();
         interceptor.initialize();
 
         ICacheService<Event> service = interceptor.getService();

@@ -14,7 +14,7 @@ public class FlumeCacheService implements ICacheService<Event> {
     @Override
     @Cacheable(value = "FlumeCachedEvent")
     public Event intercept(Event d) {
-        // TODO: implement!
+        // Cached method
         logger.info("Flume cache Service intercepting: " + d.toString());
         return d;
     }

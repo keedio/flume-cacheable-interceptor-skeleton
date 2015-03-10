@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.flume.Context;
 import org.apache.flume.Event;
-import org.apache.flume.interceptor.service.FlumeCacheService;
 import org.apache.flume.interceptor.service.ICacheService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -59,7 +58,9 @@ public class CacheableInterceptor implements Interceptor {
     public void close() {
     }
 
-    public static class Builder implements Interceptor.Builder {
+    public static class CacheableBuilder implements Interceptor.Builder {
+
+        @Override
         public Interceptor build() {
             return new CacheableInterceptor();
         }
