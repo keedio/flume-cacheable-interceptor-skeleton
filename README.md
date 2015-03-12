@@ -11,3 +11,5 @@ Cache configuration is located at [src/main/resources/ehcache.xml](./src/main/re
 [Ehcache configuration guide](http://ehcache.org/generated/2.9.0/html/ehc-all/#page/Ehcache_Documentation_Set%2F_ehcache_all.1.121.html%23)
 for details.
 
+Additionally a key generator for caching ```Map<String,String>`` objects is provided. It is recommended
+to use this generator rather than the Spring one.
