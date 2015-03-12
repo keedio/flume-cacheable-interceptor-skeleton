@@ -56,6 +56,7 @@ public class CacheableInterceptor implements Interceptor {
 
     @Override
     public void close() {
+        // Intentionally left blank
     }
 
     public static class CacheableBuilder implements Interceptor.Builder {
@@ -67,6 +68,7 @@ public class CacheableInterceptor implements Interceptor {
 
         @Override
         public void configure(Context context) {
+            // Intentionally left blank
         }
     }
 }
