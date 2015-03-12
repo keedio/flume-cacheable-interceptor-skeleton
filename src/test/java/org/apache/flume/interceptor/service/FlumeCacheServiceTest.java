@@ -1,13 +1,13 @@
 package org.apache.flume.interceptor.service;
 
-import junit.framework.Assert;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import org.apache.flume.Event;
+import org.junit.Assert;
+import org.junit.Test;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,9 +37,9 @@ public class FlumeCacheServiceTest {
             }
             List<?> afterKeys = cache.getKeys();
 
-            Assert.assertFalse( beforeKeys.contains(e1) || beforeKeys.contains(e2) );
-            Assert.assertEquals( beforeKeys.size() + 2, afterKeys.size());
-            Assert.assertTrue( afterKeys.contains(e1) && afterKeys.contains(e2) );
+            Assert.assertFalse(beforeKeys.contains(e1) || beforeKeys.contains(e2));
+            Assert.assertEquals(beforeKeys.size() + 2, afterKeys.size());
+            Assert.assertTrue(afterKeys.contains(e1) && afterKeys.contains(e2));
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -2,9 +2,10 @@ package org.apache.flume.interceptor;
 
 import org.apache.flume.Event;
 import org.apache.flume.interceptor.service.ICacheService;
+import org.junit.Assert;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+
 
 public class CacheableInterceptorTest {
 
