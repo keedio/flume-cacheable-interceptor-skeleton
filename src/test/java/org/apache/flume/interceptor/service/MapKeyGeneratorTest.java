@@ -2,6 +2,7 @@ package org.apache.flume.interceptor.service;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.cache.interceptor.SimpleKey;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,5 +28,15 @@ public class MapKeyGeneratorTest {
 
         Assert.assertEquals(key1, key2);
 
+    }
+
+    @Test
+    public void testEmptyKey() {
+        MapKeyGenerator generator = new MapKeyGenerator();
+        Map[] emptyArray = new Map[0];
+
+        Object key1 = generator.generate(null, null, emptyArray);
+
+        Assert.assertEquals(key1, SimpleKey.EMPTY);
     }
 }
